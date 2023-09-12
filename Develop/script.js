@@ -4,9 +4,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  
   var passwordText = document.querySelector("#password");
+  console.log("writepassword " , password, passwordText);
 
-  passwordText.value = password;
+  passwordText.textContent = password;
   let amount = prompt("Please enter amount of characters 8-128.");
   if (amount <= 7 || amount>=128) {
     alert("Please enter character amount between 8-128");
@@ -91,17 +93,17 @@ function writePassword() {
     
     return password;
     
-
-    
-
-
-    
   }
   let result;
   
   console.log(generatePassword(amount));
   
- 
+  var password = generatePassword(amount);
+  
+  var passwordText = document.querySelector("#password");
+  console.log("writepassword " , password, passwordText);
+
+  passwordText.textContent = password;
 
 
 }
