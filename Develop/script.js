@@ -22,7 +22,7 @@ function writePassword() {
     }
     if (confirm("Would you like to use upper-case letters?")){
       var upperCase = true;
-      console.log(upperCase)
+      console.log(upperCase);
     }
     if (confirm("would you like to use numbers?")){
       var numerics = true;
@@ -48,13 +48,32 @@ function writePassword() {
   }
   
   function generatePassword(length){
-    console.log("button success");
-    console.log(passwordText);
-    const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let result ="";
-    const upperCaseLettersLength = upperCaseLetters.length;
+    if (upperCase === true){
+      var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }else{
+      var upperCaseLetters = "";
+    }
+    if (lowerCase === true){
+      var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+    }else{
+      var lowerCaseLetters = "";
+    }
+    if (numerics === true){
+      var numericsNumbers = "0123456789";
+    }else{
+      var numericsNumbers = "";
+    }
+    if (specChar === true){
+      var specCharChar ="!@#$%^&*()";
+    }else{
+      var specCharChar = "";
+    }
+    const passwordString = (upperCaseLetters+lowerCaseLetters+numericsNumbers+specCharChar);
+    let password ="";
+    const passwordStringLength = passwordString.length;
     for (let i = 0; i < length; i++){
-      result += upperCaseLetters.charAt(Math.floor(Math.random()* upperCaseLettersLength));
+      password += passwordString.charAt(Math.floor(Math.random()* passwordStringLength));
+      result;
 
     }
     
@@ -70,7 +89,7 @@ function writePassword() {
       //}
     
     
-    return result;
+    return password;
     
 
     
@@ -78,7 +97,11 @@ function writePassword() {
 
     
   }
+  let result;
+  
   console.log(generatePassword(amount));
+  
+ 
 
 
 }
